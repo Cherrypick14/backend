@@ -23,5 +23,13 @@ router.get('/', async(req, res)=>{
           res.status(500).json(error)
     }
 })
+router.get('/', async(req, res)=>{
+      try {
+          const get_users =await new User.findById()
+          res.status(200).json(get_users);
+      } catch (error) {
+          res.status(500).json(error);
+      }
+})
 
 module.exports = router;
